@@ -1,24 +1,24 @@
 diff --git a/libavfilter/Makefile b/libavfilter/Makefile
-index 9ab65eb..1e8cc5a 100644
+index fef6ec5c55..8fba1bcf26 100644
 --- a/libavfilter/Makefile
 +++ b/libavfilter/Makefile
-@@ -310,6 +310,7 @@ OBJS-$(CONFIG_YADIF_FILTER)                  += vf_yadif.o
- OBJS-$(CONFIG_ZMQ_FILTER)                    += f_zmq.o
- OBJS-$(CONFIG_ZOOMPAN_FILTER)                += vf_zoompan.o
- OBJS-$(CONFIG_ZSCALE_FILTER)                 += vf_zscale.o
-+OBJS-$(CONFIG_GENERICSHADER_FILTER)          += vf_genericshader.o
- 
- OBJS-$(CONFIG_ALLRGB_FILTER)                 += vsrc_testsrc.o
- OBJS-$(CONFIG_ALLYUV_FILTER)                 += vsrc_testsrc.o
+@@ -244,6 +244,7 @@ OBJS-$(CONFIG_FREI0R_FILTER)                 += vf_frei0r.o
+ OBJS-$(CONFIG_FSPP_FILTER)                   += vf_fspp.o
+ OBJS-$(CONFIG_GBLUR_FILTER)                  += vf_gblur.o
+ OBJS-$(CONFIG_GEQ_FILTER)                    += vf_geq.o
++OBJS-$(CONFIG_GENERIC_FILTER)                += vf_genericshader.o
+ OBJS-$(CONFIG_GRADFUN_FILTER)                += vf_gradfun.o
+ OBJS-$(CONFIG_GRAPHMONITOR_FILTER)           += f_graphmonitor.o
+ OBJS-$(CONFIG_GREYEDGE_FILTER)               += vf_colorconstancy.o
 diff --git a/libavfilter/allfilters.c b/libavfilter/allfilters.c
-index 2c37818..fc21ad2 100644
+index c51ae0f3c7..07584e6667 100644
 --- a/libavfilter/allfilters.c
 +++ b/libavfilter/allfilters.c
-@@ -325,6 +325,7 @@ void avfilter_register_all(void)
-     REGISTER_FILTER(ZMQ,            zmq,            vf);
-     REGISTER_FILTER(ZOOMPAN,        zoompan,        vf);
-     REGISTER_FILTER(ZSCALE,         zscale,         vf);
-+    REGISTER_FILTER(GENERICSHADER,  genericshader,  vf);
- 
-     REGISTER_FILTER(ALLRGB,         allrgb,         vsrc);
-     REGISTER_FILTER(ALLYUV,         allyuv,         vsrc);
+@@ -230,6 +230,7 @@ extern AVFilter ff_vf_frei0r;
+ extern AVFilter ff_vf_fspp;
+ extern AVFilter ff_vf_gblur;
+ extern AVFilter ff_vf_geq;
++extern AVFilter ff_vf_genericshader;
+ extern AVFilter ff_vf_gradfun;
+ extern AVFilter ff_vf_graphmonitor;
+ extern AVFilter ff_vf_greyedge;
